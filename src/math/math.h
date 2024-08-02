@@ -7,8 +7,7 @@ void matrixMul(float *A, float *B, float *result);
 
 void mkLookAt4x4(float *up, float *forward, float *position, float *result);
 
-void mkPerspective4x4(float fov, float aspect, float znear, float zfar,
-                      float *result);
+void mkPerspective4x4(float fov, float aspect, float znear, float zfar, float *result);
 void mkScale4x4(float *scale, float *result);
 
 void mkTranslation4x4(float *translation, float *result);
