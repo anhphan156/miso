@@ -18,6 +18,7 @@ $(EXECUTABLE): $(OBJS)
 	g++ -o $@ $(addprefix $(BUILD_DIR)/,$(notdir $^)) $(IMGUI_LIB_DIR)/cimgui.a $(IMGUI_LIB_DIR)/imgui_impl_glfw.o $(IMGUI_LIB_DIR)/imgui_impl_opengl3.o $(LDFLAGS)
 
 $(OBJS): %.o: %.c
+	@mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $(addprefix $(BUILD_DIR)/,$(notdir $@)) -Idependencies/imgui/include
 
 run:

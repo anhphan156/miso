@@ -8,10 +8,6 @@
   }: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
-
-    run = pkgs.writeShellScriptBin "run" ''
-      make clean && make && make run
-    '';
   in {
     devShells."${system}".default = pkgs.mkShell {
       packages = with pkgs; [
@@ -19,16 +15,8 @@
         libxkbcommon
         glfw-wayland
         glew
-				assimp
+        assimp
       ];
-
-      buildInputs = [
-        run
-      ];
-
-      shellHook = ''
-        exec zsh
-      '';
     };
   };
 }
